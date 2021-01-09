@@ -1,0 +1,22 @@
+{
+  "name": "ikea-recruiting",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.spec.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.2.14",
+    "@types/mocha": "^8.2.0",
+    "@types/sinon": "^9.0.10",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.3",
+    "sinon-chai": "^3.5.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
