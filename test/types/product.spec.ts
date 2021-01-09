@@ -1,6 +1,6 @@
 import { expect } from 'chai'
 import * as sinon from 'sinon'
-import { Product, ArticleAmount } from '../src/product'
+import { Product, ArticleAmount } from '../../src/types/product'
 
 describe('Product', () => {
   describe('properties', () => {  
