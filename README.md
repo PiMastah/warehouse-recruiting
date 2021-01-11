@@ -10,7 +10,7 @@ This repository contians code for an assessment (see Assignment.md) during a rec
 
 ### terraform resources
 
-Assuming AWS provider configuration is done via credentials & config files or ENV params:
+Assuming AWS provider configuration is done via credentials & config files or ENV params (namely AWS access & secret key as well as region):
 
 `terraform apply`
 
@@ -107,14 +107,15 @@ This code takes the entities configured in the data folder, puts them into the r
 
 ## Open Topics
 
-- Input validation is (mostly) not added yet
+- input validation is (mostly) not added yet
 - no logging implemented yet
-- Currently no checks for limits of item amount in DynamoDB methods (e.g. buying products with more than 25 contained distinct articles, getting more than 100 items at once, updating more than 25 items at once will currently lead to breakage and is not handled properly) 
-- currently only unit tests, demo code could be further refined into an integration test suite 
+- no application metrics available
+- Currently no checks for limits of item amount in DynamoDB methods (e.g. buying products with more than 25 contained distinct articles, getting more than 100 items at once, updating more than 25 items at once will currently lead to breakage and is not handled properly)
+- currently only unit tests, demo code could be further refined into an integration test suite
 
 ## Notes / Thoughts
 
-- Prices have been added to the JSON file representing products
+- Prices have been added to the JSON file representing example products
 - Article stocks are updated using a transaction (e.g. in case of buying products) as to avoid handling partial purchases and allowing service scaling without side effects
 - Using this code base, it should be fairly easy to provide an API over HTTP by extracting model instances from request bodies and using the relevant usecase interactor methods
 
