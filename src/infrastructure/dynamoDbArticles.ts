@@ -71,8 +71,10 @@ class ArticlesDynamoDbStore implements ArticleStore {
             },
             TableName: this.tableName,
             UpdateExpression: 'ADD #Stock :delta',
+            ConditionExpression: 'attribute_exists(#Id)',
             ExpressionAttributeNames: {
               '#Stock': 'Stock',
+              '#Id': 'Id',
             },
             ExpressionAttributeValues: {
               ':delta': {
@@ -83,7 +85,7 @@ class ArticlesDynamoDbStore implements ArticleStore {
         };
 
         if (articleAmount.amount < 0) {
-          item.Update['ConditionExpression'] = '#Stock >= :negativedelta';
+          item.Update['ConditionExpression'] += ' AND #Stock >= :negativedelta';
           item.Update.ExpressionAttributeValues[':negativedelta'] = {
             N: Math.abs(articleAmount.amount).toString(),
           };
@@ -97,7 +99,9 @@ class ArticlesDynamoDbStore implements ArticleStore {
       await this.dynamoDb.transactWriteItems(params).promise();
     } catch (e) {
       if (e.name == 'TransactionCanceledException') {
-        throw new NotEnoughStockError('Insufficient Stock to fulfill request');
+        throw new NotEnoughStockError(
+            'Insufficient Stock or Article does not exist',
+        );
       }
       throw e;
     }

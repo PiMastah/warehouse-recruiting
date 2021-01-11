@@ -28,7 +28,7 @@ class ArticlesUsecaseInteractor {
     return this.store.updateAmounts(articleAmounts);
   }
 
-  async getArticles(articleIds: number[]): Promise<Article[]> {
+  async getArticlesById(articleIds: number[]): Promise<Article[]> {
     return this.store.queryByIds(articleIds);
   }
 }

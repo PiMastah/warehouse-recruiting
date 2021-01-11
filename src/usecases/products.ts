@@ -67,7 +67,7 @@ class ProductUsecaseInteractor {
     ));
 
     const articles =
-      await this.articleInteractor.getArticles(articleIdsToQuery);
+      await this.articleInteractor.getArticlesById(articleIdsToQuery);
 
     return products.filter(isAvailable(articles));
   }

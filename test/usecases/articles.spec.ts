@@ -65,7 +65,7 @@ describe('Article Usecases', () => {
     });
 
     it('calls the store with the correct parameters', async () => {
-      await usecaseInteractor.getArticles([1, 2, 3]);
+      await usecaseInteractor.getArticlesById([1, 2, 3]);
 
       expect(storeMock.queryByIds).to.have.been.calledWith([1, 2, 3]);
     });
@@ -75,7 +75,7 @@ describe('Article Usecases', () => {
 
       const spy = sinon.spy();
 
-      await usecaseInteractor.getArticles([1, 2, 3]).catch(spy);
+      await usecaseInteractor.getArticlesById([1, 2, 3]).catch(spy);
 
       expect(spy).to.have.been.calledOnce;
     });

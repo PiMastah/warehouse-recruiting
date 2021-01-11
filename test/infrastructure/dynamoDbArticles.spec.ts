@@ -92,7 +92,9 @@ describe('Article DynamoDb Store', () => {
             },
             TableName: 'Articles-Test',
             UpdateExpression: 'ADD #Stock :delta',
+            ConditionExpression: 'attribute_exists(#Id)',
             ExpressionAttributeNames: {
+              '#Id': 'Id',
               '#Stock': 'Stock',
             },
             ExpressionAttributeValues: {
@@ -119,8 +121,10 @@ describe('Article DynamoDb Store', () => {
             },
             TableName: 'Articles-Test',
             UpdateExpression: 'ADD #Stock :delta',
-            ConditionExpression: '#Stock >= :negativedelta',
+            ConditionExpression:
+              'attribute_exists(#Id) AND #Stock >= :negativedelta',
             ExpressionAttributeNames: {
+              '#Id': 'Id',
               '#Stock': 'Stock',
             },
             ExpressionAttributeValues: {
