@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+        "@infrastructure/*": ["src/infrastructure/*"],
+        "@interfaces/*": ["src/interfaces/*"],
+        "@models/*": ["src/models/*"],
+        "@usecases/*": ["src/usecases/*"],
+        "@test/*": ["test/*"]
+    }    
+  }
+}
