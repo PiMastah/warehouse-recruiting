@@ -8,13 +8,17 @@ This repository contians code for an assessment (see Assignment.md) during a rec
 
 `npm install`
 
+Code developed and tested with Node v14.15.4
+
 ### terraform resources
 
 Assuming AWS provider configuration is done via credentials & config files or ENV params (namely AWS access & secret key as well as region):
 
 `terraform apply`
 
-This will setup the two required tables for the demo code (s. below)
+This will setup the two required tables for the demo code (s. below).
+
+Code developed and tested with Terraform v0.14.2 & provider registry.terraform.io/hashicorp/aws v3.23.0
 
 ## Running Tests
 
