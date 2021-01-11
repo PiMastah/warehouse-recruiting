@@ -116,6 +116,7 @@ This code takes the entities configured in the data folder, puts them into the r
 - no application metrics available
 - Currently no checks for limits of item amount in DynamoDB methods (e.g. buying products with more than 25 contained distinct articles, getting more than 100 items at once, updating more than 25 items at once will currently lead to breakage and is not handled properly)
 - currently only unit tests, demo code could be further refined into an integration test suite
+- test fixtures should be refactored out of the actual tests due to repetition and for better readability
 
 ## Notes / Thoughts
 
